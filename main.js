@@ -12,12 +12,12 @@ form.addEventListener('submit', function(e) {
     const B = document.getElementById('B').value
 
     function comparaNumero(A, B) {
-        if (A==B) {
-            alert("A é igual B!");
+        if (B>A) {
+            alert("Formulário enviado com sucesso!");
         } else if (A>B) {
-            alert("A é maior que B!");
+            alert("Erro formulário não enviado!");
         } else {
-            alert("A é menor que B!");
+            alert("O Valor B precisa ser maior que o Valor A!");
         }
     }
 

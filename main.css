@@ -33,3 +33,7 @@ button {
     font-style: italic;
     cursor: pointer;
 }
+
+.fail-message {
+    color: red;
+}
