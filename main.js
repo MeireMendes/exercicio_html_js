@@ -1,25 +1,30 @@
-const form = document.getElementById('form-consulta');
+const form = document.getElementById("form-consulta");
+const message = document.getElementById("message");
 
-function validanumero(numeroCompleto) {
-    const nuemroComoArray = numeroCompleto.split(' ');
-    return nuemroComoArray.length > numeroCompleto
+function validarNumero(numeroCompleto) {
+    const numeros = numeroCompleto.split(" ");
+    return numeros.every((n) => !isNaN(Number(n)));
 }
 
-form.addEventListener('submit', function(e) {
+function comparaNumero(A, B) {
+    if (isNaN(A) || isNaN(B)) {
+        alert("Por favor, insira números válidos para os campos A e B!");
+    } else if (B > A) {
+        message.className = "success-message";
+        message.innerText = "B é maior que A";
+        alert("Formulário enviado com sucesso!");
+    } else {
+        message.className = "error-message";
+        message.innerText = "O valor de B precisa ser maior do que o valor de A!";
+        alert("Erro: formulário não enviado!");
+    }
+}
+
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const A = document.getElementById('A').value 
-    const B = document.getElementById('B').value
+    const A = document.getElementById("A").value;
+    const B = document.getElementById("B").value;
 
-    function comparaNumero(A, B) {
-        if (B>A) {
-            alert("Formulário enviado com sucesso!");
-        } else if (A>B) {
-            alert("Erro formulário não enviado!");
-        } else {
-            alert("O Valor B precisa ser maior que o Valor A!");
-        }
-    }
-
-    formEvalido = comparaNumero(A, B)
-})
+    comparaNumero(A, B);
+});
